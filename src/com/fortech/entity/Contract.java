@@ -50,5 +50,16 @@ public class Contract {
 	@Column(name = "CONT_CONTRACT_PUG")
 	private BigDecimal contractPug;
 	
+	@NotNull(message = "Rate subvention must be specified.")
+	@Column(name = "CONT_RATE_SUBVENTION")
+	private BigDecimal rateSubvention;
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
