@@ -11,7 +11,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import com.fortech.carbuyback.enums.ContractState;
 import com.fortech.carbuyback.enums.Portfolio;
@@ -78,6 +82,7 @@ public class ContractImpl implements Contract {
 	@Override
 	@Id
 	@GeneratedValue
+	@Size(min=36, max=36)
 	public String getId() {
 		return id;
 	}
@@ -87,8 +92,9 @@ public class ContractImpl implements Contract {
 		this.id = id;
 	}
 
-	@NotNull(message = "Contract center id must be specified.")
 	@Override
+	@NotNull(message = "Contract center id must be specified.")
+	@Size(min=3, max=3)
 	public String getCenterId() {
 		return centerId;
 	}
@@ -100,6 +106,7 @@ public class ContractImpl implements Contract {
 
 	@Override
 	@NotNull(message = "Contract number must be specified.")
+	@Size(min=12, max=12)
 	public String getNumber() {
 		return number;
 	}
@@ -112,6 +119,7 @@ public class ContractImpl implements Contract {
 	@Override
 	@NotNull(message = "Contract state must be specified.")
 	@Enumerated(EnumType.STRING)
+	@Size(min=3, max=3)
 	public ContractState getState() {
 		return state;
 	}
@@ -123,6 +131,7 @@ public class ContractImpl implements Contract {
 
 	@Override
 	@NotNull(message = "Contract vehicle state must be specified.")
+	@Size(min=1, max=1)
 	public String getVehicleState() {
 		return vehicleState;
 	}
@@ -156,6 +165,7 @@ public class ContractImpl implements Contract {
 
 	@Override
 	@NotNull(message = "Contract portofolio must be specified.")
+	@Size(min=1, max=1)
 	public Portfolio getPortfolio() {
 		return portfolio;
 	}
@@ -167,6 +177,7 @@ public class ContractImpl implements Contract {
 
 	@Override
 	@NotNull(message = "Contract PUG must be specified.")
+	@DecimalMin("0.01")
 	public BigDecimal getContractPug() {
 		return contractPug;
 	}
@@ -187,6 +198,7 @@ public class ContractImpl implements Contract {
 	}
 
 	@Override
+	@Min(0)
 	public Integer getMileagePerYear() {
 		return mileagePerYear;
 	}
@@ -198,6 +210,8 @@ public class ContractImpl implements Contract {
 
 	@Override
 	@NotNull(message = "Contract RU Guarantor must be specified.")
+	@Size(min=4, max=4)
+	@Pattern(regexp = "{A-Za-z}*")
 	public String getRuGuarantor() {
 		return ruGuarantor;
 	}
@@ -208,6 +222,7 @@ public class ContractImpl implements Contract {
 	}
 
 	@Override
+	@Size(max=20)
 	public String getCustomerInfo() {
 		return customerInfo;
 	}
@@ -219,6 +234,7 @@ public class ContractImpl implements Contract {
 
 	@Override
 	@NotNull(message = "Contract created by must be specified")
+	@Size(max=20)
 	public String getCreatedBy() {
 		return createdBy;
 	}
@@ -240,6 +256,7 @@ public class ContractImpl implements Contract {
 	}
 
 	@Override
+	@Size(max=20)
 	public String getModifiedBy() {
 		return modifiedBy;
 	}

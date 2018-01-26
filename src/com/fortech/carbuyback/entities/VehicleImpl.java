@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import com.fortech.carbuyback.enums.Branch;
 import com.fortech.carbuyback.enums.Brand;
@@ -80,6 +82,7 @@ public class VehicleImpl implements Vehicle{
 	@Override
 	@Id
 	@GeneratedValue
+	@Size(min=36, max=36)
 	public String getId() {
 		return id;
 	}
@@ -90,6 +93,7 @@ public class VehicleImpl implements Vehicle{
 	}
 
 	@Override
+	@Size(min=36, max=36)
 	public String getContId() {
 		return contId;
 	}
@@ -101,6 +105,7 @@ public class VehicleImpl implements Vehicle{
 
 	@Override
 	@NotNull(message = "Vehicle VIN must be specified.")
+	@Size(min=17, max=17)
 	public String getVin() {
 		return vin;
 	}
@@ -113,6 +118,7 @@ public class VehicleImpl implements Vehicle{
 	@Override
 	@NotNull(message = "Vehicle branch must be specified.")
 	@Enumerated(EnumType.STRING)
+	@Size(min=1, max=1)
 	public Branch getBranch() {
 		return branch;
 	}
@@ -123,6 +129,8 @@ public class VehicleImpl implements Vehicle{
 	}
 
 	@Override
+	@Size(min=17, max=17)
+	@Pattern(regexp = "{A-Za-z}*")
 	public String getInternalVin() {
 		return internalVin;
 	}
@@ -133,6 +141,7 @@ public class VehicleImpl implements Vehicle{
 	}
 
 	@Override
+	@Size(min=3, max=3)
 	public String getModelYear() {
 		return modelYear;
 	}
@@ -145,6 +154,7 @@ public class VehicleImpl implements Vehicle{
 	@Override
 	@NotNull(message = "Vehicle brand must be specified.")
 	@Enumerated(EnumType.STRING)
+	@Size(min=3, max=3)
 	public Brand getBrand() {
 		return brand;
 	}
@@ -156,6 +166,7 @@ public class VehicleImpl implements Vehicle{
 
 	@Override
 	@NotNull(message = "Vehicle class must be specified.")
+	@Size(max=80)
 	public String getVehicleClass() {
 		return VehicleClass;
 	}
@@ -167,6 +178,7 @@ public class VehicleImpl implements Vehicle{
 
 	@Override
 	@NotNull(message = "Vehicle type class must be specified.")
+	@Size(max=80)
 	public String getVehicleTypeClass() {
 		return vehicleTypeClass;
 	}
@@ -177,6 +189,7 @@ public class VehicleImpl implements Vehicle{
 	}
 
 	@Override
+	@Size(max=80)
 	public String getModel() {
 		return model;
 	}
@@ -187,6 +200,7 @@ public class VehicleImpl implements Vehicle{
 	}
 
 	@Override
+	@Size(min=10, max=10)
 	public String getTransmissionType() {
 		return transmissionType;
 	}
@@ -197,6 +211,7 @@ public class VehicleImpl implements Vehicle{
 	}
 
 	@Override
+	@Size(min=10, max=10)
 	public String getEngineType() {
 		return engineType;
 	}
@@ -207,6 +222,7 @@ public class VehicleImpl implements Vehicle{
 	}
 
 	@Override
+	@Size(min=14, max=14)
 	public String getCommissionNumber() {
 		return commissionNumber;
 	}
@@ -228,6 +244,7 @@ public class VehicleImpl implements Vehicle{
 	}
 
 	@Override
+	@Size(min=10, max=10)
 	public String getEmissionStandard() {
 		return emissionStandard;
 	}
@@ -238,6 +255,7 @@ public class VehicleImpl implements Vehicle{
 	}
 
 	@Override
+	@Size(max=20)
 	public String getCreatedBy() {
 		return createdBy;
 	}
@@ -258,6 +276,7 @@ public class VehicleImpl implements Vehicle{
 	}
 
 	@Override
+	@Size(max=20)
 	public String getModifiedBy() {
 		return modifiedBy;
 	}
