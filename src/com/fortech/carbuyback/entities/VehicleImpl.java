@@ -1,4 +1,4 @@
-package com.fortech.entity;
+package com.fortech.carbuyback.entities;
 
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -12,8 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import com.fortech.enums.Branch;
-import com.fortech.enums.Brand;
+import com.fortech.carbuyback.enums.Branch;
+import com.fortech.carbuyback.enums.Brand;
 
 
 @Entity

@@ -1,4 +1,4 @@
-package com.fortech.enums;
+package com.fortech.carbuyback.enums;
 
 public enum Portfolio {
 	

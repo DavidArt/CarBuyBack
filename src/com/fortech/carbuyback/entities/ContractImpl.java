@@ -1,4 +1,4 @@
-package com.fortech.entity;
+package com.fortech.carbuyback.entities;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -13,8 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import com.fortech.enums.ContractState;
-import com.fortech.enums.Portfolio;
+import com.fortech.carbuyback.enums.ContractState;
+import com.fortech.carbuyback.enums.Portfolio;
 
 
 @Entity

@@ -43,7 +43,9 @@ public class LoginBean {
 		this.userName = userName;
 	}
 
-	/* Method To Check User's Authentication Credentials */
+	/**
+	 *  Method To Check User's Authentication Credentials.
+	 */
 	public String validateLoginCredentials() {
 		String validationResult = "";
 		EntityManager entityMgrObj = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME).createEntityManager();
