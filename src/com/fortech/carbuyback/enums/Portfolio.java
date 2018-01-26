@@ -2,22 +2,18 @@ package com.fortech.carbuyback.enums;
 
 public enum Portfolio {
 	
-	FINANCE_LEASE {
-	      public String toString() {
-	          return "1";
-	      }
-	},
-	
-	OPERATE_LEASE {
-	      public String toString() {
-	          return "2";
-	      }
-	},
-	
-	DIRECT_BUYBACK {
-	      public String toString() {
-	          return "3";
-	      }
+	FINANCE_LEASE ("1"),	
+	OPERATE_LEASE ("2"),	
+	DIRECT_BUYBACK ("3");
+
+	private final String portfolio;
+
+	private Portfolio(String portfolio) {
+		this.portfolio = portfolio;
 	}
 
+	public String getPortfolio() {
+		return portfolio;
+	}
+	
 }

@@ -2,28 +2,19 @@ package com.fortech.carbuyback.enums;
 
 public enum ContractState {
 
-	IN_PREPARATION {
-	      public String toString() {
-	          return "BIP";
-	      }
-	},
+	IN_PREPARATION ("BIP"),
+	ACTIVE ("BAC"),
+	RESOLD ("BRS"),
+	CANCELED ("BCA");
 	
-	active {
-	      public String toString() {
-	          return "BAC";
-	      }
-	},
+	private final String contractState;
 	
-	RESOLD {
-	      public String toString() {
-	          return "BRS";
-	      }
-	},
+	ContractState(String contractState) {
+		this.contractState = contractState;
+	}
 	
-	CANCELED {
-	      public String toString() {
-	          return "BCA";
-	      }
-	}	
+	public String getContractState() {
+		return contractState;
+	}
 	
 }

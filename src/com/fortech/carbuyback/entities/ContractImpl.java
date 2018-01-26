@@ -19,7 +19,7 @@ import com.fortech.carbuyback.enums.Portfolio;
 
 @Entity
 @Table(name="CONTRACT")
-public class Contract {
+public class ContractImpl implements Contract {
 	
 	@Column(name = "CONT_ID")
 	private String id;
@@ -75,161 +75,196 @@ public class Contract {
 	@Column(name = "CONT_VERSION")
 	private Integer version;
 
+	@Override
 	@Id
 	@GeneratedValue
 	public String getId() {
 		return id;
 	}
 
+	@Override
 	public void setId(String id) {
 		this.id = id;
 	}
 
 	@NotNull(message = "Contract center id must be specified.")
+	@Override
 	public String getCenterId() {
 		return centerId;
 	}
 	
+	@Override
 	public void setCenterId(String centerId) {
 		this.centerId = centerId;
 	}
 
+	@Override
 	@NotNull(message = "Contract number must be specified.")
 	public String getNumber() {
 		return number;
 	}
 
+	@Override
 	public void setNumber(String number) {
 		this.number = number;
 	}
 
+	@Override
 	@NotNull(message = "Contract state must be specified.")
 	@Enumerated(EnumType.STRING)
 	public ContractState getState() {
 		return state;
 	}
 
-	
+	@Override
 	public void setState(ContractState state) {
 		this.state = state;
 	}
 
+	@Override
 	@NotNull(message = "Contract vehicle state must be specified.")
 	public String getVehicleState() {
 		return vehicleState;
 	}
 
+	@Override
 	public void setVehicleState(String vehicleState) {
 		this.vehicleState = vehicleState;
 	}
 
+	@Override
 	@NotNull(message = "Current start date must be specified.")
 	public Date getCurrentStartDate() {
 		return currentStartDate;
 	}
 
+	@Override
 	public void setCurrentStartDate(Date currentStartDate) {
 		this.currentStartDate = currentStartDate;
 	}
 
+	@Override
 	@NotNull(message = "Contract duration must be specified.")
 	public Integer getContractDuration() {
 		return contractDuration;
 	}
 
+	@Override
 	public void setContractDuration(Integer contractDuration) {
 		this.contractDuration = contractDuration;
 	}
 
+	@Override
 	@NotNull(message = "Contract portofolio must be specified.")
 	public Portfolio getPortfolio() {
 		return portfolio;
 	}
 
+	@Override
 	public void setPortfolio(Portfolio portfolio) {
 		this.portfolio = portfolio;
 	}
 
+	@Override
 	@NotNull(message = "Contract PUG must be specified.")
 	public BigDecimal getContractPug() {
 		return contractPug;
 	}
 
+	@Override
 	public void setContractPug(BigDecimal contractPug) {
 		this.contractPug = contractPug;
 	}
 
+	@Override
 	public BigDecimal getRateSubvention() {
 		return rateSubvention;
 	}
 
+	@Override
 	public void setRateSubvention(BigDecimal rateSubvention) {
 		this.rateSubvention = rateSubvention;
 	}
 
+	@Override
 	public Integer getMileagePerYear() {
 		return mileagePerYear;
 	}
 
+	@Override
 	public void setMileagePerYear(Integer mileagePerYear) {
 		this.mileagePerYear = mileagePerYear;
 	}
 
+	@Override
 	@NotNull(message = "Contract RU Guarantor must be specified.")
 	public String getRuGuarantor() {
 		return ruGuarantor;
 	}
 
+	@Override
 	public void setRuGuarantor(String ruGuarantor) {
 		this.ruGuarantor = ruGuarantor;
 	}
 
+	@Override
 	public String getCustomerInfo() {
 		return customerInfo;
 	}
 
+	@Override
 	public void setCustomerInfo(String customerInfo) {
 		this.customerInfo = customerInfo;
 	}
 
+	@Override
 	@NotNull(message = "Contract created by must be specified")
 	public String getCreatedBy() {
 		return createdBy;
 	}
 
+	@Override
 	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
 	}
 
+	@Override
 	@NotNull(message = "Contract created timestamp by must be specified")
 	public Timestamp getCreatedTimestamp() {
 		return createdTimestamp;
 	}
 
+	@Override
 	public void setCreatedTimestamp(Timestamp createdTimestamp) {
 		this.createdTimestamp = createdTimestamp;
 	}
 
+	@Override
 	public String getModifiedBy() {
 		return modifiedBy;
 	}
 
+	@Override
 	public void setModifiedBy(String modifiedBy) {
 		this.modifiedBy = modifiedBy;
 	}
 
+	@Override
 	public Timestamp getModifiedTimestamp() {
 		return modifiedTimestamp;
 	}
 
+	@Override
 	public void setModifiedTimestamp(Timestamp modifiedTimestamp) {
 		this.modifiedTimestamp = modifiedTimestamp;
 	}
 
+	@Override
 	public Integer getVersion() {
 		return version;
 	}
 
+	@Override
 	public void setVersion(Integer version) {
 		this.version = version;
 	}
