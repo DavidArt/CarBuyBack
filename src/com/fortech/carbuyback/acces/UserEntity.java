@@ -1,4 +1,4 @@
-package com.jsf.entitymanager;
+package com.fortech.carbuyback.acces;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

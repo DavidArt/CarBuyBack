@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -81,7 +82,7 @@ public class VehicleImpl implements Vehicle{
 
 	@Override
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Size(min=36, max=36)
 	public String getId() {
 		return id;
@@ -294,6 +295,20 @@ public class VehicleImpl implements Vehicle{
 	@Override
 	public void setModifiedTimestamp(Timestamp modifiedTimestamp) {
 		this.modifiedTimestamp = modifiedTimestamp;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "VehicleImpl [id=" + id + ", contId=" + contId + ", vin=" + vin + ", branch=" + branch + ", internalVin="
+				+ internalVin + ", modelYear=" + modelYear + ", brand=" + brand + ", VehicleClass=" + VehicleClass
+				+ ", vehicleTypeClass=" + vehicleTypeClass + ", model=" + model + ", transmissionType="
+				+ transmissionType + ", engineType=" + engineType + ", commissionNumber=" + commissionNumber
+				+ ", registrationDate=" + registrationDate + ", emissionStandard=" + emissionStandard + ", createdBy="
+				+ createdBy + ", createdTimestamp=" + createdTimestamp + ", modifiedBy=" + modifiedBy
+				+ ", modifiedTimestamp=" + modifiedTimestamp + "]";
 	}
 	
 	

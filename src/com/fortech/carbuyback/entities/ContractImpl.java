@@ -9,7 +9,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
@@ -23,7 +26,12 @@ import com.fortech.carbuyback.enums.Portfolio;
 
 @Entity
 @Table(name="CONTRACT")
+@NamedQueries({@NamedQuery(name=ContractImpl.GET_CONTRACT_BY_ID, query="select c from ContractImpl c"),
+    		   @NamedQuery(name=ContractImpl.GET_ALL_CONTRACTS, query="select c from ContractImpl c where c.id = :CONT_ID")})
 public class ContractImpl implements Contract {
+	
+	public static final String GET_CONTRACT_BY_ID = "getContractById";
+	public static final String GET_ALL_CONTRACTS = "getAllContracts";
 	
 	@Column(name = "CONT_ID")
 	private String id;
@@ -81,7 +89,7 @@ public class ContractImpl implements Contract {
 
 	@Override
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Size(min=36, max=36)
 	public String getId() {
 		return id;
@@ -284,6 +292,17 @@ public class ContractImpl implements Contract {
 	@Override
 	public void setVersion(Integer version) {
 		this.version = version;
+	}
+
+	@Override
+	public String toString() {
+		return "ContractImpl [id=" + id + ", centerId=" + centerId + ", number=" + number + ", state=" + state
+				+ ", vehicleState=" + vehicleState + ", currentStartDate=" + currentStartDate + ", contractDuration="
+				+ contractDuration + ", portfolio=" + portfolio + ", contractPug=" + contractPug + ", rateSubvention="
+				+ rateSubvention + ", mileagePerYear=" + mileagePerYear + ", ruGuarantor=" + ruGuarantor
+				+ ", customerInfo=" + customerInfo + ", createdBy=" + createdBy + ", createdTimestamp="
+				+ createdTimestamp + ", modifiedBy=" + modifiedBy + ", modifiedTimestamp=" + modifiedTimestamp
+				+ ", version=" + version + "]";
 	}
 	
 	
