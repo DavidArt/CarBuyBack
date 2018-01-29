@@ -8,7 +8,7 @@ import javax.persistence.Query;
 
 @ManagedBean 
 @SessionScoped
-public class LoginBean extends Acces {
+public class LoginBean extends AbstractBuyBackAcces {
 
 	private String name;
 	private String password;
@@ -46,7 +46,7 @@ public class LoginBean extends Acces {
 	public String validateLoginCredentials() {
 		String validationResult = "";
 		
-		Query queryObj = em.createQuery("SELECT u FROM UserEntity u WHERE u.login = :login AND u.password = :password");
+		Query queryObj = createEm().createQuery("SELECT u FROM UserEntity u WHERE u.login = :login AND u.password = :password");
 		queryObj.setParameter("login", userName);
 		queryObj.setParameter("password", password);
 		try {
