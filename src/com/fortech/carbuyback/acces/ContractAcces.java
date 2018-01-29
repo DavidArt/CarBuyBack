@@ -1,10 +1,10 @@
 package com.fortech.carbuyback.acces;
  
 import java.util.List;
-import javax.persistence.TypedQuery;
+
+import javax.persistence.Query;
 
 import com.fortech.carbuyback.entities.AbstractBuyBackEntity;
-import com.fortech.carbuyback.entities.Contract;
 
 /**
  * Access class used to persist contract entities to the database
@@ -31,8 +31,9 @@ public class ContractAcces extends AbstractBuyBackAcces{
      * Fetches all contracts from the database
      * @return the list of contracts from the database
      */
-    public List<AbstractBuyBackEntity> findAllContracts() {
-        TypedQuery<AbstractBuyBackEntity> query = createEm().createNamedQuery(Contract.GET_ALL_CONTRACTS, AbstractBuyBackEntity.class);
+    @SuppressWarnings("unchecked")
+	public List<AbstractBuyBackEntity> findAllContracts() {
+        Query query = createEm().createNamedQuery("AbstractBuyBackAcces.getAllContracts");
        
         return (List<AbstractBuyBackEntity>) query.getResultList();
     }
@@ -42,11 +43,11 @@ public class ContractAcces extends AbstractBuyBackAcces{
      * @param id of the contract
      * @return true if the contract is fetched from the database
      */
-    public AbstractBuyBackEntity findContractbyId(String id) {
-        TypedQuery<AbstractBuyBackEntity> query = createEm().createNamedQuery(Contract.GET_CONTRACT_BY_ID, AbstractBuyBackEntity.class);
+    public AbstractBuyBackEntity findContractById(String id) {
+        Query query = createEm().createNamedQuery("AbstractBuyBackAcces.getContractById");
         query.setParameter("id", id);
        
-        return (AbstractBuyBackEntity) query.getSingleResult();
+        return  (AbstractBuyBackEntity) query.getSingleResult();
     }
    
     /**
@@ -55,7 +56,7 @@ public class ContractAcces extends AbstractBuyBackAcces{
      * @return true if the contract is fetched from the database
      */
     public AbstractBuyBackEntity findContractByNumber(String number) {
-        TypedQuery<AbstractBuyBackEntity> query = createEm().createNamedQuery(Contract.GET_CONTRACT_BY_NUMBER, AbstractBuyBackEntity.class);
+        Query query = createEm().createNamedQuery("AbstractBuyBackAcces.getContractByNumber");
         query.setParameter("CONT_NUMBER", number);
        
         return (AbstractBuyBackEntity) query.getSingleResult();
@@ -67,7 +68,7 @@ public class ContractAcces extends AbstractBuyBackAcces{
      * @return true if the contract is fetched from the database
      */
     public AbstractBuyBackEntity findContractByRvg(String contractRvg) {
-        TypedQuery<AbstractBuyBackEntity> query = createEm().createNamedQuery(Contract.GET_CONTRACT_BY_RVG, AbstractBuyBackEntity.class);
+        Query query = createEm().createNamedQuery("AbstractBuyBackAcces.getContractByRvg");
         query.setParameter("GET_CONTRACT_BY_RVG", contractRvg);
        
         return (AbstractBuyBackEntity) query.getSingleResult();
@@ -95,7 +96,7 @@ public class ContractAcces extends AbstractBuyBackAcces{
     public boolean deleteContract(String id) {
         createEm();
         beginTransaction();
-        AbstractBuyBackEntity abstractBuyBackEntity = findContractbyId(id);
+        AbstractBuyBackEntity abstractBuyBackEntity = findContractById(id);
         remove(abstractBuyBackEntity);
         commitTransaction();
         

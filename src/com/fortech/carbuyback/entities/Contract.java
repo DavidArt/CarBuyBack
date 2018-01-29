@@ -11,8 +11,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
@@ -20,7 +18,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import com.fortech.carbuyback.acces.AbstractBuyBackAcces;
 import com.fortech.carbuyback.enums.ContractState;
 import com.fortech.carbuyback.enums.Portfolio;
  
@@ -32,10 +29,6 @@ import com.fortech.carbuyback.enums.Portfolio;
   */
 @Entity
 @Table(name="CONTRACT")
-@NamedQueries({@NamedQuery(name=AbstractBuyBackAcces.GET_ALL_CONTRACTS, query="SELECT c FROM Contract c"),
-               @NamedQuery(name=AbstractBuyBackAcces.GET_CONTRACT_BY_NUMBER, query="SELECT c FROM Contract c WHERE c.number =:number"),
-               @NamedQuery(name=AbstractBuyBackAcces.GET_CONTRACT_BY_RVG, query="SELECT c FROM Contract c WHERE c.contractRvg =:contractRvg"),
-               @NamedQuery(name=AbstractBuyBackAcces.GET_CONTRACT_BY_ID, query="SELECT c FROM Contract c WHERE c.id = :id")})
 public class Contract implements IContract {
    
    

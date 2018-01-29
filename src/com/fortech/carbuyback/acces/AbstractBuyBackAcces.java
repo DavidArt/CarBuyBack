@@ -17,10 +17,6 @@ public abstract class AbstractBuyBackAcces {
 	private static final String PERSISTENCE_UNIT_NAME = "BuyBackEntityManager";
 	private EntityManager em;
 	
-	public static final String GET_CONTRACT_BY_ID = "getContractById";
-    public static final String GET_ALL_CONTRACTS = "getAllContracts";
-    public static final String GET_CONTRACT_BY_NUMBER = "getContractByNumber";
-    public static final String GET_CONTRACT_BY_RVG = "getContractByRvg";
 
 	/**
 	 * Method used to create an EntityManagerFactory
@@ -43,7 +39,9 @@ public abstract class AbstractBuyBackAcces {
 	 * Method used to begin a transaction
 	 */
 	public void beginTransaction() {
-		this.em.getTransaction().begin();
+		if (em!=null) {
+			this.em.getTransaction().begin();
+		}
 	}
 	
 	/**
@@ -51,14 +49,18 @@ public abstract class AbstractBuyBackAcces {
 	 * @param abstractBuyBackEntity the entity to be persisted to the database
 	 */
 	public void persistTransaction(AbstractBuyBackEntity abstractBuyBackEntity) {
-		this.em.persist(abstractBuyBackEntity);
+		if (em!=null) {
+			this.em.persist(abstractBuyBackEntity);
+		}
 	}
 	
 	/**
 	 * Method used to commit a transaction
 	 */
 	public void commitTransaction() {
-		this.em.getTransaction().commit();
+		if (em!=null) {
+			this.em.getTransaction().commit();
+		}
 	}
 	
 	/**
@@ -66,7 +68,9 @@ public abstract class AbstractBuyBackAcces {
 	 * @param abstractBuyBackEntity the entity to be updated in the database
 	 */
 	public void mergeTransaction(AbstractBuyBackEntity abstractBuyBackEntity) {
-		this.em.merge(abstractBuyBackEntity);
+		if (em!=null) {
+			this.em.merge(abstractBuyBackEntity);
+		}
 	}
 	
 	/**
@@ -74,7 +78,9 @@ public abstract class AbstractBuyBackAcces {
 	 * @param abstractBuyBackEntity the entity to be removed from the database
 	 */
 	public void remove(AbstractBuyBackEntity abstractBuyBackEntity) {
-		this.em.remove(abstractBuyBackEntity);
+		if (em!=null) {
+			this.em.remove(abstractBuyBackEntity);
+		}
 	}
 
 }

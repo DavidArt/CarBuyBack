@@ -27,10 +27,6 @@ import com.fortech.carbuyback.enums.Brand;
 @Entity
 @Table(name="VEHICLE")
 public class Vehicle implements IVehicle{
-	
-    public static final String GET_VEHICLE_BY_ID = "getVehicleById";
-    public static final String GET_ALL_VEHICLES = "getAllVehicles";
-    public static final String GET_VEHICLE_BY_VIN = "getVehicleByVin";
     
 	@Column(name = "VEHI_ID")
 	private String id;
