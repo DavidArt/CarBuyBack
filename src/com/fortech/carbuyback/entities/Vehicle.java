@@ -18,6 +18,7 @@ import javax.validation.constraints.Size;
 import com.fortech.carbuyback.enums.Branch;
 import com.fortech.carbuyback.enums.Brand;
 
+
 /**
  * A Vehicle entity used to represent a table in the database
  * 
