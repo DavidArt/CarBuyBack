@@ -3,22 +3,23 @@ package com.fortech.carbuyback.controller;
 import java.util.List;
 
 import com.fortech.carbuyback.entities.AbstractBuyBackEntity;
-import com.fortech.carbuyback.service.ContractService;
+import com.fortech.carbuyback.service.IContractService;
 
 /**
  * Controller class
  * @author david.rus
  *
  */
-public class ContractController {
+public class ContractController implements IContractController {
 	
-	private ContractService contractService;
+	private IContractService contractService;
 	
 	/**
 	 * Persist a new contract to the database
 	 * @param abstractBuyBackEntity the contract to be persisted
 	 * @return true if the entity has been saved top the database
 	 */
+	@Override
 	public boolean createContract(AbstractBuyBackEntity abstractBuyBackEntity) {
 		return contractService.createContract(abstractBuyBackEntity);
 	}
@@ -27,6 +28,7 @@ public class ContractController {
      * Fetches all contracts from the database
      * @return the list of contracts from the database
      */
+	@Override
 	public List<AbstractBuyBackEntity> findAllContracts() {
 		return contractService.findAllContracts();
 	}
@@ -36,6 +38,7 @@ public class ContractController {
      * @param id of the contract
      * @return true if the contract is fetched from the database
      */
+	@Override
 	public AbstractBuyBackEntity findContractById(String id) {
 		return contractService.findContractById(id);
 	}
@@ -45,6 +48,7 @@ public class ContractController {
      * @param number of the contract
      * @return true if the contract is fetched from the database
      */
+	@Override
     public AbstractBuyBackEntity findContractByNumber(String number) {
     	return contractService.findContractByNumber(number);
     }
@@ -54,6 +58,7 @@ public class ContractController {
      * @param contractRvg of the contract
      * @return true if the contract is fetched from the database
      */
+	@Override
     public AbstractBuyBackEntity findContractByRvg(String contractRvg) {
     	return contractService.findContractByRvg(contractRvg);
     }
@@ -63,6 +68,7 @@ public class ContractController {
      * @param abstractBuyBackEntity the contract to be updated
      * @return true if contract is updated
      */
+	@Override
     public boolean updateContract(AbstractBuyBackEntity abstractBuyBackEntity) {
     	return contractService.updateContract(abstractBuyBackEntity);
     }
@@ -72,6 +78,7 @@ public class ContractController {
      * @param id the id of the contract to be deleted
      * @return true if contract is deleted
      */
+	@Override
     public boolean deleteContract(String id) {
     	return contractService.deleteContract(id);
     }

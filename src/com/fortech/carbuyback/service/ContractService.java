@@ -10,7 +10,7 @@ import com.fortech.carbuyback.entities.AbstractBuyBackEntity;
  * @author david.rus
  *
  */
-public class ContractService {
+public class ContractService implements IContractService {
 
 	private ContractAcces contractAcces;
 	
@@ -19,6 +19,7 @@ public class ContractService {
 	 * @param abstractBuyBackEntity the contract to be persisted
 	 * @return true if the entity has been saved top the database
 	 */
+	@Override
 	public boolean createContract(AbstractBuyBackEntity abstractBuyBackEntity) {
 		return contractAcces.createContract(abstractBuyBackEntity);
 	}
@@ -27,6 +28,7 @@ public class ContractService {
      * Fetches all contracts from the database
      * @return the list of contracts from the database
      */
+	@Override
 	public List<AbstractBuyBackEntity> findAllContracts() {
 		return contractAcces.findAllContracts();
 	}
@@ -36,6 +38,7 @@ public class ContractService {
      * @param id of the contract
      * @return true if the contract is fetched from the database
      */
+	@Override
 	public AbstractBuyBackEntity findContractById(String id) {
 		return contractAcces.findContractById(id);
 	}
@@ -45,6 +48,7 @@ public class ContractService {
      * @param number of the contract
      * @return true if the contract is fetched from the database
      */
+	@Override
     public AbstractBuyBackEntity findContractByNumber(String number) {
     	return contractAcces.findContractByNumber(number);
     }
@@ -54,6 +58,7 @@ public class ContractService {
      * @param contractRvg of the contract
      * @return true if the contract is fetched from the database
      */
+	@Override
     public AbstractBuyBackEntity findContractByRvg(String contractRvg) {
     	return contractAcces.findContractByRvg(contractRvg);
     }
@@ -63,6 +68,7 @@ public class ContractService {
      * @param abstractBuyBackEntity the contract to be updated
      * @return true if contract is updated
      */
+	@Override
     public boolean updateContract(AbstractBuyBackEntity abstractBuyBackEntity) {
     	return contractAcces.updateContract(abstractBuyBackEntity);
     }
@@ -72,6 +78,7 @@ public class ContractService {
      * @param id the id of the contract to be deleted
      * @return true if contract is deleted
      */
+	@Override
     public boolean deleteContract(String id) {
     	return contractAcces.deleteContract(id);
     }

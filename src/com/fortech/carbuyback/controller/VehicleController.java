@@ -3,22 +3,23 @@ package com.fortech.carbuyback.controller;
 import java.util.List;
 
 import com.fortech.carbuyback.entities.AbstractBuyBackEntity;
-import com.fortech.carbuyback.service.VehicleService;
+import com.fortech.carbuyback.service.IVehicleService;
 
 /**
  * Controller class
  * @author david.rus
  *
  */
-public class VehicleController {
+public class VehicleController implements IVehicleController{
 
-	private VehicleService vehicleService;
+	private IVehicleService vehicleService;
 	
 	/**
 	 * Persist a new vehicle to the database
 	 * @param abstractBuyBackEntity the vehicle to be persisted
 	 * @return true if the entity has been saved top the database
 	 */
+	@Override
 	public boolean createVehicle(AbstractBuyBackEntity abstractBuyBackEntity) {
 		return vehicleService.createVehicle(abstractBuyBackEntity);
 	}
@@ -27,6 +28,7 @@ public class VehicleController {
      * Fetches all vehicles from the database
      * @return the list of vehicles from the database
      */
+	@Override
 	public List<AbstractBuyBackEntity> findAllVehicles() {
     	return vehicleService.findAllVehicles();
     }
@@ -36,6 +38,7 @@ public class VehicleController {
      * @param id of the vehicle
      * @return true if the vehicle is fetched from the database
      */
+	@Override
     public AbstractBuyBackEntity findVehicleById(String id) {
     	return vehicleService.findVehicleById(id);
     }
@@ -45,6 +48,7 @@ public class VehicleController {
      * @param id of the vehicle
      * @return true if the vehicle is fetched from the database
      */
+	@Override
     public AbstractBuyBackEntity findVehicleByVin(String vin) {
     	return vehicleService.findVehicleByVin(vin);
     }
@@ -54,6 +58,7 @@ public class VehicleController {
      * @param abstractBuyBackEntity the vehicle to be updated
      * @return true if vehicle is updated
      */
+	@Override
     public boolean updateVehicle(AbstractBuyBackEntity abstractBuyBackEntity) {
     	return vehicleService.updateVehicle(abstractBuyBackEntity);
     }
@@ -63,6 +68,7 @@ public class VehicleController {
      * @param id the id of the vehicle to be deleted
      * @return true if vehicle is deleted
      */
+	@Override
     public boolean deleteVehicle(String id) {
     	return vehicleService.deleteVehicle(id);
     }
