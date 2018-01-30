@@ -12,6 +12,7 @@ import com.fortech.carbuyback.entities.AbstractBuyBackEntity;
  */
 public class VehicleService implements IVehicleService {
 	
+	
 	private VehicleAcces vehicleAcces;
 	
 	/**

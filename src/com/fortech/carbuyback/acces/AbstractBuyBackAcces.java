@@ -15,6 +15,7 @@ import com.fortech.carbuyback.entities.AbstractBuyBackEntity;
 public abstract class AbstractBuyBackAcces {
 	
 	private static final String PERSISTENCE_UNIT_NAME = "BuyBackEntityManager";
+	
 	private EntityManager em;
 	
 

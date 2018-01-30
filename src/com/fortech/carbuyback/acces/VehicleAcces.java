@@ -1,7 +1,6 @@
 package com.fortech.carbuyback.acces;
 
 import java.util.List;
-
 import javax.persistence.Query;
 
 import com.fortech.carbuyback.entities.AbstractBuyBackEntity;
@@ -11,6 +10,7 @@ import com.fortech.carbuyback.entities.AbstractBuyBackEntity;
  * @author david.rus
  *
  */
+
 public class VehicleAcces extends AbstractBuyBackAcces {
 
 	/**

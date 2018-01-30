@@ -12,6 +12,7 @@ import com.fortech.carbuyback.service.IVehicleService;
  */
 public class VehicleController implements IVehicleController{
 
+	
 	private IVehicleService vehicleService;
 	
 	/**

@@ -12,6 +12,7 @@ import com.fortech.carbuyback.entities.AbstractBuyBackEntity;
  */
 public class ContractService implements IContractService {
 
+	
 	private ContractAcces contractAcces;
 	
 	/**

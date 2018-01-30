@@ -1,7 +1,6 @@
 package com.fortech.carbuyback.acces;
  
 import java.util.List;
-
 import javax.persistence.Query;
 
 import com.fortech.carbuyback.entities.AbstractBuyBackEntity;
@@ -33,7 +32,7 @@ public class ContractAcces extends AbstractBuyBackAcces{
      */
     @SuppressWarnings("unchecked")
 	public List<AbstractBuyBackEntity> findAllContracts() {
-        Query query = createEm().createNamedQuery("AbstractBuyBackAcces.getAllContracts");
+        Query query = createEm().createNamedQuery("getAllContracts");
        
         return (List<AbstractBuyBackEntity>) query.getResultList();
     }
